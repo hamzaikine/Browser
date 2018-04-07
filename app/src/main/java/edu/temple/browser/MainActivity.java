@@ -14,13 +14,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-/*
-
-Browser as the name refers lets to access websites.
-
-
-
- */
 
 public class MainActivity extends AppCompatActivity implements BrowserFragment.updateURL {
 
