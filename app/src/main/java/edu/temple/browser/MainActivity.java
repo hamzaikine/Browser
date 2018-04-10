@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebBackForwardList;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -76,7 +77,8 @@ public class MainActivity extends AppCompatActivity implements BrowserFragment.u
 
                 if (browserFragment.webView.canGoBack()) {
                     browserFragment.webView.goBack();
-
+                    WebBackForwardList mWebBackForwardList = browserFragment.webView.copyBackForwardList();
+                    editText.setText(mWebBackForwardList.getItemAtIndex(mWebBackForwardList.getCurrentIndex()).getUrl());
                     return true;
                 }
 
@@ -89,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements BrowserFragment.u
             case R.id.Next:
                 if (browserFragment.webView.canGoForward()) {
                     browserFragment.webView.goForward();
+                    WebBackForwardList mWebBackForwardList = browserFragment.webView.copyBackForwardList();
+                    editText.setText(mWebBackForwardList.getItemAtIndex(1).getUrl());
                     return true;
                 }
                 if (browserFragmentArrayList.size() > (index + 1)) {

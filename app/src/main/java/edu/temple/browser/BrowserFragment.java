@@ -53,11 +53,6 @@ public class BrowserFragment extends Fragment {
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-
-    }
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -75,7 +70,8 @@ public class BrowserFragment extends Fragment {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             view.loadUrl(url);
-            sendURL(view.getUrl());
+            Log.d("webViewUrl",url);
+            sendURL(url);
             return true;
         }
     }
